@@ -291,6 +291,21 @@ cp -r //wsl.localhost/Ubuntu/home/<user>/hermes-agent/skills/creative \
     └── public/                static assets
 ```
 
+## Production-readiness spec
+
+Spec-driven rollout artifacts live under:
+
+- `docs/production/roadmap.md`
+- `docs/production/spec/production-spec.json`
+- `web/tests/production-spec.test.mjs`
+
+Validate production spec coverage:
+
+```bash
+cd web
+npm run spec:validate
+```
+
 ## Built for
 
 Nous Creative Hackathon, 2026.

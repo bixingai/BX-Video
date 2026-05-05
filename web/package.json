@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "spec:validate": "node --test tests/production-spec.test.mjs",
+    "test": "npm run spec:validate"
   },
   "dependencies": {
     "@xyflow/react": "^12.10.2",

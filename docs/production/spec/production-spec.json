@@ -1,0 +1,140 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-05-05",
+  "phases": [
+    {
+      "id": "phase-1",
+      "name": "Product + Platform Specification Baseline",
+      "acceptanceCriteria": [
+        {
+          "id": "P1-AC1",
+          "title": "v1 scope and exclusions are documented and approved",
+          "verification": ["manual_review", "artifact_check"]
+        },
+        {
+          "id": "P1-AC2",
+          "title": "NFRs include security, latency, uptime, cost, and data retention",
+          "verification": ["artifact_check"]
+        }
+      ]
+    },
+    {
+      "id": "phase-2",
+      "name": "Cloud Architecture Redesign",
+      "acceptanceCriteria": [
+        {
+          "id": "P2-AC1",
+          "title": "Architecture defines web, gateway, workers, queue, and storage boundaries",
+          "verification": ["artifact_check", "manual_review"]
+        },
+        {
+          "id": "P2-AC2",
+          "title": "Environment contract is complete and reproducible across staging/prod",
+          "verification": ["integration_test", "artifact_check"]
+        }
+      ]
+    },
+    {
+      "id": "phase-3",
+      "name": "BYOK as First-Class Capability",
+      "acceptanceCriteria": [
+        {
+          "id": "P3-AC1",
+          "title": "User keys are encrypted at rest and revocable",
+          "verification": ["security_test", "integration_test"]
+        },
+        {
+          "id": "P3-AC2",
+          "title": "Per-request provider routing honors user-selected key scope",
+          "verification": ["unit_test", "integration_test"]
+        }
+      ]
+    },
+    {
+      "id": "phase-4",
+      "name": "Provider Abstraction for Voice/Video",
+      "acceptanceCriteria": [
+        {
+          "id": "P4-AC1",
+          "title": "Provider interfaces expose capability metadata and standardized errors",
+          "verification": ["unit_test", "contract_test"]
+        },
+        {
+          "id": "P4-AC2",
+          "title": "Fallback policy is deterministic and tested under provider failures",
+          "verification": ["resilience_test", "integration_test"]
+        }
+      ]
+    },
+    {
+      "id": "phase-5",
+      "name": "Security + Compliance Hardening",
+      "acceptanceCriteria": [
+        {
+          "id": "P5-AC1",
+          "title": "AuthN/AuthZ boundaries are enforced for all user actions",
+          "verification": ["security_test", "integration_test"]
+        },
+        {
+          "id": "P5-AC2",
+          "title": "Threat model findings are tracked with no open critical issues",
+          "verification": ["artifact_check", "manual_review"]
+        }
+      ]
+    },
+    {
+      "id": "phase-6",
+      "name": "Fully Testable Quality System",
+      "acceptanceCriteria": [
+        {
+          "id": "P6-AC1",
+          "title": "Unit, contract, e2e, resilience, and security suites are defined",
+          "verification": ["artifact_check", "manual_review"]
+        },
+        {
+          "id": "P6-AC2",
+          "title": "Critical user journeys pass in CI with deterministic fixtures",
+          "verification": ["e2e_test", "integration_test"]
+        }
+      ]
+    },
+    {
+      "id": "phase-7",
+      "name": "CI/CD and Release Governance",
+      "acceptanceCriteria": [
+        {
+          "id": "P7-AC1",
+          "title": "PR gates enforce lint, typecheck, tests, security, and build",
+          "verification": ["ci_check", "artifact_check"]
+        },
+        {
+          "id": "P7-AC2",
+          "title": "Promotion and rollback workflow is documented and exercised",
+          "verification": ["manual_review", "integration_test"]
+        }
+      ]
+    },
+    {
+      "id": "phase-8",
+      "name": "Observability + Operations Readiness",
+      "acceptanceCriteria": [
+        {
+          "id": "P8-AC1",
+          "title": "Logs, traces, metrics, and alerts are defined with ownership",
+          "verification": ["artifact_check", "manual_review"]
+        },
+        {
+          "id": "P8-AC2",
+          "title": "SLOs and incident runbooks exist for top operational risks",
+          "verification": ["ops_drill", "artifact_check"]
+        }
+      ]
+    }
+  ],
+  "releaseGates": [
+    "all_phase_acceptance_criteria_met",
+    "no_open_critical_security_findings",
+    "ci_all_green",
+    "rollback_plan_verified"
+  ]
+}
