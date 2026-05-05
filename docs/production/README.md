@@ -21,7 +21,7 @@ This directory implements a spec-driven, paced rollout for taking BX-Video from 
 
 ## How to validate
 
-From `/home/runner/work/BX-Video/BX-Video/web`:
+From the `web` directory:
 
 ```bash
 npm run spec:validate
